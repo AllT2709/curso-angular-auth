@@ -5,13 +5,12 @@ import { faPen, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-login-form',
-  templateUrl: './login-form.component.html'
+  templateUrl: './login-form.component.html',
 })
 export class LoginFormComponent {
-
   form = this.formBuilder.nonNullable.group({
     email: ['', [Validators.email, Validators.required]],
-    password: ['', [ Validators.required, Validators.minLength(6)]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
   });
   faPen = faPen;
   faEye = faEye;
@@ -21,7 +20,7 @@ export class LoginFormComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
   ) { }
 
   doLogin() {
@@ -33,5 +32,4 @@ export class LoginFormComponent {
       this.form.markAllAsTouched();
     }
   }
-
 }
